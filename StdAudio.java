@@ -1,19 +1,4 @@
 
-/******************************************************************************
- *  Compilation:  javac StdAudio.java
- *  Execution:    java StdAudio
- *  Dependencies: none
- *  
- *  Simple library for reading, writing, and manipulating .wav files.
- *
- *
- *  Limitations
- *  -----------
- *    - Does not seem to work properly when reading .wav files from a .jar file.
- *    - Assumes the audio is monaural, with sampling rate of 44,100.
- *
- ******************************************************************************/
-
 import java.applet.AudioClip;
 import java.applet.Applet;
 
