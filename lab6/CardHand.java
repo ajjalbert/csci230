@@ -1,3 +1,4 @@
+
 package card;
 
 import java.util.Iterator;
@@ -17,9 +18,22 @@ public class CardHand implements Iterable<Card>{
 	// add a new card with the given rank and suit to the hand
 	void addCard(Card.Rank rank, Card.Suit suit) {
 		// TODO
+		Card newCard = new Card(rank, suit);
+			
+		
+				if(fingers[suit.ordinal()] == null){
+					hand.addLast(newCard);
+					fingers[suit.ordinal()] = hand.last();
+					numSuit[suit.ordinal()] += 1;
+				}
+				
+				else{
+					hand.addAfter(fingers[suit.ordinal()], newCard);
+					numSuit[suit.ordinal()] += 1;
+				}
 	}
 	
-	// Remove and return a card of suit s from the player’s hand;
+	// Remove and return a card of suit s from the playerâ€™s hand;
 	// if there is no card of suit s, then remove and return an 
 	// arbitrary card from the hand.
 	Card play(Card.Suit suit) {
