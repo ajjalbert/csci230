@@ -19,7 +19,7 @@ public class CardHand implements Iterable<Card>{
 		// TODO
 	}
 	
-	// Remove and return a card of suit s from the player’s hand;
+	// Remove and return a card of suit s from the playerâ€™s hand;
 	// if there is no card of suit s, then remove and return an 
 	// arbitrary card from the hand.
 	Card play(Card.Suit suit) {
@@ -40,13 +40,26 @@ public class CardHand implements Iterable<Card>{
 		private int numIterated = 0;
 		private Card.Suit suit;
 		public SuitIterator(Card.Suit s) { 
+			suit = s;
+			
+			cursor = fingers[suit.ordinal()];
+			recent = cursor;	
 			// TODO
 		
 		}
 		public Card next() throws NoSuchElementException {
+			recent = cursor;
+			cursor = hand.after(cursor);
+			numIterated+=1;
+			
+			return recent.getElement();
 			// TODO
 		}
 		public boolean hasNext() { 
+			if(cursor==null || numIterated >= numSuit[suit.ordinal()])
+				return false;
+			else
+				return true;
 			// TODO
 		}
 		
